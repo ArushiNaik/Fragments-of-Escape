@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FragmentRise : MonoBehaviour
 {
@@ -7,14 +8,26 @@ public class FragmentRise : MonoBehaviour
 
     private Vector3 startPos;
     private bool rising = false;
+    private SpriteRenderer sr;
 
     void Start()
     {
         startPos = transform.position;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public void StartRise()
     {
+        StartCoroutine(RiseDelay());
+    }
+
+    IEnumerator RiseDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        // bring fragment in front when it starts rising
+        sr.sortingOrder = 10;
+
         rising = true;
     }
 

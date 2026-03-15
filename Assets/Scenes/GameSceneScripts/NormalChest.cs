@@ -1,8 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class ChestPuzzle : MonoBehaviour
+public class normalChest : MonoBehaviour
 {
+
     public List<Sprite> requiredItems = new List<Sprite>(); // scalable item list
     public GameObject fragment;
 
@@ -52,6 +53,6 @@ public class ChestPuzzle : MonoBehaviour
             InventoryManager.instance.RemoveItem(item);
         }
 
-        GameMessageManager.instance.ShowMessage("You found the painting fragment!");
+        GameMessageManager.instance.ShowMessage("You found the painting water Potion!");
     }
 }

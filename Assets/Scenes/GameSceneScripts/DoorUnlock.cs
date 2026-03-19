@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class PianoInteract : MonoBehaviour
+public class DoorUnlock : MonoBehaviour
 {
-    public GameObject pianoPanel;
+    public Sprite requiredKey;
     public TMP_Text interactionText;
 
     private bool playerNear = false;
@@ -12,13 +12,22 @@ public class PianoInteract : MonoBehaviour
     {
         if (playerNear && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("OPEN");
-            pianoPanel.SetActive(true);
+            TryOpen();
+        }
+    }
 
-            // 🔥 Reset puzzle every time you open it
-            PianoPuzzle puzzle = pianoPanel.GetComponent<PianoPuzzle>();
-            
-            interactionText.text = "";
+    void TryOpen()
+    {
+        if (InventoryManager.instance.HasItem(requiredKey))
+        {
+            GameMessageManager.instance.ShowMessage("Door unlocked!");
+
+            InventoryManager.instance.RemoveItem(requiredKey);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            GameMessageManager.instance.ShowMessage("You need a key");
         }
     }
 
@@ -26,7 +35,6 @@ public class PianoInteract : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player"))
         {
-            Debug.Log("ENTER");
             playerNear = true;
             interactionText.text = "Press E to interact";
         }
@@ -36,7 +44,6 @@ public class PianoInteract : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player"))
         {
-            Debug.Log("EXIT");
             playerNear = false;
             interactionText.text = "";
         }

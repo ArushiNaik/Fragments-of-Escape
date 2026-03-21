@@ -21,4 +21,5 @@ public class InteractionPromptUI : MonoBehaviour
     {
         promptUI.SetActive(false);
     }
+
 }

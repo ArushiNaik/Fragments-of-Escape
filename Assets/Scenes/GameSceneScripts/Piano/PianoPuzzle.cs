@@ -1,15 +1,15 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PianoPuzzle : MonoBehaviour
 {
     public Image keyC;
     public Image keyDSharp;
     public Image keyG;
-    private bool isResetting = false;
+
     public Color correctColor = Color.green;
-    public Color wrongColor = Color.red;
 
     public GameObject pianoPanel;
 
@@ -21,29 +21,43 @@ public class PianoPuzzle : MonoBehaviour
     public GameObject rewardKey;
 
     private string[] correct = { "C", "D#", "G" };
-    private int index = 0;
+
+    private string[] playerInput = new string[3];
+    private Image[] pressedKeys = new Image[3];
+
+    private int inputIndex = 0;
+    private bool isChecking = false;
 
     public void PressKey(string note)
     {
-        if (isResetting) return; // 🛑 block input during reset
+        if (isChecking) return;
 
         PlaySound(note);
 
-        if (index >= correct.Length)
-            index = 0;
+        if (inputIndex >= playerInput.Length)
+            return;
 
-        if (note == correct[index])
+        playerInput[inputIndex] = note;
+        pressedKeys[inputIndex] = GetKeyImage(note);
+
+        inputIndex++;
+
+        if (inputIndex == playerInput.Length)
         {
-            index++;
-
-            if (index == correct.Length)
-            {
-                Solve();
-            }
+            StartCoroutine(CheckSequence());
         }
-        else
+    }
+
+    Image GetKeyImage(string note)
+    {
+        switch (note)
         {
-            StartCoroutine(WrongRoutine());
+            case "C": return keyC;
+            case "D#": return keyDSharp;
+            case "G": return keyG;
+            default:
+                Debug.LogWarning("Unknown note: " + note);
+                return null;
         }
     }
 
@@ -56,65 +70,107 @@ public class PianoPuzzle : MonoBehaviour
         if (note == "G") audioSource.PlayOneShot(noteG);
     }
 
-    void Solve()
+    IEnumerator CheckSequence()
     {
-        Debug.Log("Solve triggered");
+        isChecking = true;
 
-        if (keyC == null) Debug.LogError("keyC NULL");
-        if (keyDSharp == null) Debug.LogError("keyDSharp NULL");
-        if (keyG == null) Debug.LogError("keyG NULL");
-        if (rewardKey == null) Debug.LogError("rewardKey NULL");
-        if (pianoPanel == null) Debug.LogError("pianoPanel NULL");
-        if (GameMessageManager.instance == null) Debug.LogError("GameMessageManager NULL");
+        bool isCorrect = true;
 
-        if (keyC != null) keyC.color = correctColor;
-        if (keyDSharp != null) keyDSharp.color = correctColor;
-        if (keyG != null) keyG.color = correctColor;
+        for (int i = 0; i < correct.Length; i++)
+        {
+            if (playerInput[i] != correct[i])
+            {
+                isCorrect = false;
+                break;
+            }
+        }
 
-        if (GameMessageManager.instance != null)
-            GameMessageManager.instance.ShowMessage("Yay! Puzzle Solved!");
+        if (isCorrect)
+        {
+            for (int i = 0; i < pressedKeys.Length; i++)
+            {
+                if (pressedKeys[i] != null)
+                    StartCoroutine(SetColorNextFrame(pressedKeys[i], correctColor));
+            }
 
-        if (rewardKey != null)
-            rewardKey.SetActive(true);
+            if (GameMessageManager.instance != null)
+                GameMessageManager.instance.ShowMessage("Yay! Puzzle Solved!");
 
-        StartCoroutine(CloseAfterDelay());
+            if (rewardKey != null)
+                rewardKey.SetActive(true);
+
+            yield return new WaitForSeconds(2f);
+
+            ExitPiano();
+        }
+        else
+        {
+            if (GameMessageManager.instance != null)
+                GameMessageManager.instance.ShowMessage("Wrong combination!");
+
+            yield return new WaitForSeconds(2f);
+
+            ResetSequence();
+        }
+
+        isChecking = false;
     }
 
-    IEnumerator WrongRoutine()
+    void ExitPiano()
     {
-        isResetting = true;
-
-        //  turn red
-        if (keyC != null) keyC.color = wrongColor;
-        if (keyDSharp != null) keyDSharp.color = wrongColor;
-        if (keyG != null) keyG.color = wrongColor;
-
-        if (GameMessageManager.instance != null)
-            GameMessageManager.instance.ShowMessage("Wrong combination!");
-
-        // wait 2 sec
-        yield return new WaitForSeconds(2f);
-
-        //  reset
-        ResetSequence();
-
-        isResetting = false;
-    }
-
-    IEnumerator CloseAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-
         if (pianoPanel != null)
             pianoPanel.SetActive(false);
+
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
+
+        if (InteractionPromptUI.instance != null)
+            InteractionPromptUI.instance.HidePrompt();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Collider2D col = player.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false;
+                col.enabled = true;
+            }
+        }
+    }
+
+    void SetKeyColor(Color color)
+    {
+        if (keyC != null) keyC.color = color;
+        if (keyDSharp != null) keyDSharp.color = color;
+        if (keyG != null) keyG.color = color;
     }
 
     public void ResetSequence()
     {
-        index = 0;
+        inputIndex = 0;
 
-        if (keyC != null) keyC.color = Color.white;
-        if (keyDSharp != null) keyDSharp.color = Color.white;
-        if (keyG != null) keyG.color = Color.white;
+        for (int i = 0; i < playerInput.Length; i++)
+        {
+            playerInput[i] = "";
+            pressedKeys[i] = null;
+        }
+
+        // Keep correct base colors
+        //if (keyC != null) keyC.color = Color.white;
+        //if (keyDSharp != null) keyDSharp.color = Color.black;
+        //if (keyG != null) keyG.color = Color.white;
+    }
+
+    void OnEnable()
+    {
+        ResetSequence();
+    }
+
+    IEnumerator SetColorNextFrame(Image img, Color color)
+    {
+        yield return null;
+        if (img != null)
+            img.color = color;
     }
 }

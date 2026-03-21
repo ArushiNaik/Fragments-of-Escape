@@ -1,24 +1,22 @@
 using UnityEngine;
-using TMPro;
 
 public class PianoInteract : MonoBehaviour
 {
     public GameObject pianoPanel;
-    public TMP_Text interactionText;
 
     private bool playerNear = false;
 
     void Update()
     {
-        if (playerNear && Input.GetKeyDown(KeyCode.E))
+        if (playerNear)
         {
-            Debug.Log("OPEN");
-            pianoPanel.SetActive(true);
+            InteractionPromptUI.instance.ShowPrompt();
 
-            // 🔥 Reset puzzle every time you open it
-            PianoPuzzle puzzle = pianoPanel.GetComponent<PianoPuzzle>();
-            
-            interactionText.text = "";
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("OPEN");
+                pianoPanel.SetActive(true);
+            }
         }
     }
 
@@ -26,9 +24,7 @@ public class PianoInteract : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player"))
         {
-            Debug.Log("ENTER");
             playerNear = true;
-            interactionText.text = "Press E to interact";
         }
     }
 
@@ -36,9 +32,8 @@ public class PianoInteract : MonoBehaviour
     {
         if (other.transform.root.CompareTag("Player"))
         {
-            Debug.Log("EXIT");
             playerNear = false;
-            interactionText.text = "";
+            InteractionPromptUI.instance.HidePrompt();
         }
     }
 }

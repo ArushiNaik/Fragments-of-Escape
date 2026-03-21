@@ -8,7 +8,7 @@ public class FragmentPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InventoryManager inv = FindObjectOfType<InventoryManager>();
+            InventoryManager inv = FindAnyObjectByType<InventoryManager>();
             inv.AddItem(itemIcon);
 
             gameObject.SetActive(false);

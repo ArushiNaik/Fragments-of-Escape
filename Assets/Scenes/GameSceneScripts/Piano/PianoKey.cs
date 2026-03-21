@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class PianoKey : MonoBehaviour
 {
-    public string note; // D, E#, C etc
-    public AudioClip sound;
     public AudioSource audioSource;
-    
+    public AudioClip sound;
 
     public void PlayKey()
-    {
-        audioSource.PlayOneShot(sound);
-       
+    { 
+            AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
+        
     }
 }

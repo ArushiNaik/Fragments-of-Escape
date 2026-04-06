@@ -54,9 +54,11 @@
     <Compile Include="Assets\Scenes\GameSceneScripts\Interactable stuff\InteractableObject.cs" />
     <Compile Include="Assets\Scenes\GameSceneScripts\Piano\PianoPuzzle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Animations\MainPlayer\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Animations\IntroDialogue.cs" />
     <Compile Include="Assets\Scenes\GameSceneScripts\FragmentRise.cs" />
+    <Compile Include="Assets\Scenes\Floor2 scripts\LockPuzzle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scenes\GameSceneScripts\FlamePickup.cs" />
     <Compile Include="Assets\Scenes\GameSceneScripts\ChestPuzzle.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Assets\Scenes\GameSceneScripts\Interactable stuff\ChestInteract.cs" />
     <Compile Include="Assets\Scenes\GameSceneScripts\CloseBookButton.cs" />
     <Compile Include="Assets\Scenes\MainMenu\UIButtonHover.cs" />
+    <Compile Include="Assets\Scenes\Floor2 scripts\LockWheel.cs" />
     <Compile Include="Assets\ScriptsGame\FeatherPickup.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Assets\Scenes\GameSceneScripts\Interactable stuff\NormalChestInteract.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scenes\Floor2 scripts\FragmentPickup2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="Assets\Scenes\GameSceneScripts\Piano\PianoInteract.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scenes\Floor2 scripts\ChestWithLock.cs" />
     <Compile Include="Assets\ScriptsGame\PlayerMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />

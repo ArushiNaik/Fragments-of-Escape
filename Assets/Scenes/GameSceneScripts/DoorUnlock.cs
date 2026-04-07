@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class DoorUnlock : MonoBehaviour
@@ -18,10 +18,15 @@ public class DoorUnlock : MonoBehaviour
 
     void TryOpen()
     {
+        if (requiredKey == null)
+        {
+            Debug.LogError("No key assigned!");
+            return;
+        }
+
         if (InventoryManager.instance.HasItem(requiredKey))
         {
             GameMessageManager.instance.ShowMessage("Door unlocked!");
-
             InventoryManager.instance.RemoveItem(requiredKey);
             gameObject.SetActive(false);
         }
@@ -36,7 +41,7 @@ public class DoorUnlock : MonoBehaviour
         if (other.transform.root.CompareTag("Player"))
         {
             playerNear = true;
-            interactionText.text = "Press E to interact";
+            interactionText.text = "Press E to use key";
         }
     }
 

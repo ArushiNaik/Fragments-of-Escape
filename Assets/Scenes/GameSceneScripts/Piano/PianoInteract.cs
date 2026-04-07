@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class PianoInteract : MonoBehaviour
 {
-    public GameObject pianoPanel;
+    public PianoPuzzle pianoPuzzle;
 
     private bool playerNear = false;
 
     void Update()
     {
-        if (playerNear)
-        {
+        if (!playerNear) return;
+
+        if (InteractionPromptUI.instance != null)
             InteractionPromptUI.instance.ShowPrompt();
 
-            if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (pianoPuzzle != null)
             {
                 Debug.Log("OPEN");
-                pianoPanel.SetActive(true);
+                pianoPuzzle.OpenPiano();
             }
         }
     }
@@ -25,6 +28,9 @@ public class PianoInteract : MonoBehaviour
         if (other.transform.root.CompareTag("Player"))
         {
             playerNear = true;
+
+            if (InteractionPromptUI.instance != null)
+                InteractionPromptUI.instance.ShowPrompt();
         }
     }
 
@@ -33,7 +39,9 @@ public class PianoInteract : MonoBehaviour
         if (other.transform.root.CompareTag("Player"))
         {
             playerNear = false;
-            InteractionPromptUI.instance.HidePrompt();
+
+            if (InteractionPromptUI.instance != null)
+                InteractionPromptUI.instance.HidePrompt();
         }
     }
 }

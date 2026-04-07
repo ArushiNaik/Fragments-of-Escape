@@ -2001,11 +2001,9 @@ GameObject:
   - component: {fileID: 158920483}
   - component: {fileID: 158920486}
   - component: {fileID: 158920485}
-  - component: {fileID: 158920487}
   - component: {fileID: 158920488}
   - component: {fileID: 158920489}
   - component: {fileID: 158920491}
-  - component: {fileID: 158920490}
   m_Layer: 0
   m_Name: doors1-_1
   m_TagString: Untagged
@@ -2139,7 +2137,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.013048768}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2149,20 +2147,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.64, y: 0.96}
+  m_Size: {x: 0.64, y: 0.98609746}
   m_EdgeRadius: 0
---- !u!114 &158920487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158920481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c90a024b23894a4408daaa7287e56e9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
 --- !u!58 &158920488
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2197,8 +2183,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.48
+  m_Offset: {x: 0, y: -0.036536716}
+  m_Radius: 0.51286143
 --- !u!222 &158920489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2207,27 +2193,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158920481}
   m_CullTransparentMesh: 1
---- !u!114 &158920490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158920481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ceb2a4ee787f64996f995f42a5974f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
-  animator: {fileID: 158920491}
-  interactTrigger: Interact
-  blockingCollider: {fileID: 158920486}
-  disableDelay: 0.5
-  hasItem: 0
-  itemPrefab: {fileID: 0}
-  hasNote: 1
-  noteText: Door destroyed
-  destroyAfterUse: 0
 --- !u!95 &158920491
 Animator:
   serializedVersion: 7
@@ -2933,20 +2898,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.3722398, y: -0.19236666}
+  - {x: -2.3008978, y: -0.15781607}
   - {x: -2.3484628, y: -0.10359225}
   - {x: -2.4626143, y: -0.095876835}
   - {x: -2.4646978, y: 0.26177487}
   - {x: -0.42351732, y: 0.2714249}
   - {x: -0.4408768, y: -0.033936705}
   - {x: -0.4885483, y: -0.12651831}
-  - {x: -0.52583635, y: -0.22580424}
-  - {x: -1.2519697, y: -0.23246135}
+  - {x: -0.5156442, y: -0.14288284}
+  - {x: -1.2621619, y: -0.14953993}
   - {x: -1.2993219, y: -0.11638895}
   - {x: -1.2907239, y: -0.081811905}
   - {x: -1.5463318, y: -0.085809216}
-  - {x: -1.6099708, y: -0.23036478}
-  - {x: -2.3571463, y: -0.19650327}
+  - {x: -1.5895875, y: -0.15435341}
+  - {x: -2.275612, y: -0.15504248}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2989,13 +2954,14 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 0.7929927, y: -0.0654238}
-  - {x: 0.9016965, y: -0.20083642}
-  - {x: 1.6316271, y: -0.18408349}
+  - {x: 0.8405457, y: -0.173196}
+  - {x: 1.621435, y: -0.15644293}
   - {x: 1.6673106, y: -0.07187377}
   - {x: 1.8900616, y: -0.07486405}
-  - {x: 1.9126673, y: -0.19635823}
-  - {x: 2.6798615, y: -0.21113408}
-  - {x: 2.692111, y: -0.0915821}
+  - {x: 1.9126673, y: -0.18253803}
+  - {x: 1.960479, y: -0.18176699}
+  - {x: 2.7104368, y: -0.1696733}
+  - {x: 2.7532618, y: -0.105402306}
   - {x: 2.7748556, y: -0.09528375}
   - {x: 2.7908964, y: 0.30383268}
   - {x: 0.74082845, y: 0.28710422}
@@ -3380,7 +3346,6 @@ GameObject:
   - component: {fileID: 215420652}
   - component: {fileID: 215420651}
   - component: {fileID: 215420650}
-  - component: {fileID: 215420653}
   m_Layer: 0
   m_Name: cabinet_21
   m_TagString: Untagged
@@ -3422,7 +3387,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.02105388, y: -0.022396639}
+  m_Offset: {x: 0.02105388, y: 0.061278857}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3432,7 +3397,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.71787995, y: 0.7133672}
+  m_Size: {x: 0.71787995, y: 0.5460163}
   m_EdgeRadius: 0
 --- !u!212 &215420651
 SpriteRenderer:
@@ -3479,9 +3444,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 792742823
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1275453633
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 9cb15aeed053c004ba87e6638b0f4911, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3508,18 +3473,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1925404596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &215420653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215420649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75293b7df169c9747afefe64dc6552b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YSort
 --- !u!1001 &215424538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3758,7 +3711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b831128b1cfc984a906f717b9da212c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PianoInteract
-  pianoPanel: {fileID: 508246473}
+  pianoPuzzle: {fileID: 508246478}
 --- !u!58 &222921113
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3802,7 +3755,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222921106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c90a024b23894a4408daaa7287e56e9b, type: 3}
   m_Name: 
@@ -5493,7 +5446,8 @@ EdgeCollider2D:
   - {x: -0.45521688, y: 0.19931926}
   - {x: -0.4457129, y: 0.32951593}
   - {x: -0.34120247, y: 0.32307866}
-  - {x: -0.33824378, y: 0.4907504}
+  - {x: -0.34793013, y: 0.47862488}
+  - {x: -0.046281047, y: 0.47602957}
   - {x: 0.39806348, y: 0.48441535}
   - {x: 0.39950928, y: 0.33574304}
   - {x: 0.45227727, y: 0.33438447}
@@ -8621,7 +8575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyDrop
   dropSpeed: 0.5
-  dropDistance: 2
+  dropDistance: 1.5
 --- !u!114 &598790198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14937,7 +14891,6 @@ GameObject:
   - component: {fileID: 1090375915}
   - component: {fileID: 1090375914}
   - component: {fileID: 1090375913}
-  - component: {fileID: 1090375916}
   m_Layer: 0
   m_Name: cabinet_27
   m_TagString: Untagged
@@ -14979,7 +14932,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.063183665, y: -0.004026875}
+  m_Offset: {x: 0.063183665, y: 0.05208592}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14989,7 +14942,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8525876, y: 0.67819524}
+  m_Size: {x: 0.8525876, y: 0.5659696}
   m_EdgeRadius: 0
 --- !u!212 &1090375914
 SpriteRenderer:
@@ -15036,9 +14989,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 792742823
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1275453633
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: c70e12ed21b006a4992d09a2065b6c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15065,18 +15018,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1925404596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1090375916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090375912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75293b7df169c9747afefe64dc6552b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YSort
 --- !u!1 &1093027066
 GameObject:
   m_ObjectHideFlags: 0
@@ -17272,7 +17213,7 @@ Transform:
   m_GameObject: {fileID: 1198930256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015, y: -0.444, z: 0}
+  m_LocalPosition: {x: -0.015, y: -0.229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18034,8 +17975,8 @@ EdgeCollider2D:
   - {x: -0.37625784, y: 1.9647952}
   - {x: 1.1478043, y: 1.8053702}
   - {x: 1.0931208, y: 1.5834957}
-  - {x: 1.1052974, y: 0.89850974}
-  - {x: 2.2164395, y: 0.91994625}
+  - {x: 1.1083498, y: 1.0788698}
+  - {x: 2.2439106, y: 1.0702463}
   - {x: 2.2461638, y: 0.8085986}
   - {x: 2.5617125, y: 0.8051393}
   - {x: 2.5651078, y: 0.058487058}
@@ -20265,9 +20206,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 792742823
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1275453633
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: c70e12ed21b006a4992d09a2065b6c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -29278,9 +29219,10 @@ EdgeCollider2D:
   - {x: -0.55479336, y: 0.19860667}
   - {x: -0.45521688, y: 0.19931926}
   - {x: -0.4457129, y: 0.32951593}
-  - {x: -0.34120247, y: 0.32307866}
-  - {x: -0.33824378, y: 0.4907504}
-  - {x: 0.39806348, y: 0.48441535}
+  - {x: -0.37994882, y: 0.32307866}
+  - {x: -0.36730325, y: 0.41799718}
+  - {x: -0.31887105, y: 0.4361855}
+  - {x: 0.37869075, y: 0.4419761}
   - {x: 0.39950928, y: 0.33574304}
   - {x: 0.45227727, y: 0.33438447}
   - {x: 0.45947003, y: 0.19780815}

@@ -26,16 +26,6 @@ public class normalChest : MonoBehaviour
             return;
         }
 
-        // Check if player has all required items
-        foreach (Sprite item in requiredItems)
-        {
-            if (!InventoryManager.instance.HasItem(item))
-            {
-                GameMessageManager.instance.ShowMessage("You are missing something...");
-                return;
-            }
-        }
-
         chestOpened = true;
 
         if (animator != null)
@@ -47,12 +37,6 @@ public class normalChest : MonoBehaviour
         if (rise != null)
             rise.StartRise();
 
-        // Remove all required items from inventory
-        foreach (Sprite item in requiredItems)
-        {
-            InventoryManager.instance.RemoveItem(item);
-        }
-
-        GameMessageManager.instance.ShowMessage("You found the painting water Potion!");
+        GameMessageManager.instance.ShowMessage("You found water!");
     }
 }

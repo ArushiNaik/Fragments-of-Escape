@@ -5,37 +5,57 @@ using UnityEngine.UI;
 
 public class PianoPuzzle : MonoBehaviour
 {
+    [Header("Keys")]
     public Image keyC;
     public Image keyDSharp;
     public Image keyG;
 
     public Color correctColor = Color.green;
 
+    [Header("UI")]
     public GameObject pianoPanel;
 
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip noteC;
     public AudioClip noteDSharp;
     public AudioClip noteG;
 
+    [Header("Reward")]
     public GameObject rewardKey;
 
     private string[] correct = { "C", "D#", "G" };
-
     private string[] playerInput = new string[3];
     private Image[] pressedKeys = new Image[3];
 
     private int inputIndex = 0;
     private bool isChecking = false;
+    private bool isOpen = false;
+
+    // 🔹 CALL THIS when opening the piano
+    public void OpenPiano()
+    {
+        isOpen = true;
+
+        if (pianoPanel != null)
+            pianoPanel.SetActive(true);
+
+        ResetSequence();
+    }
 
     public void PressKey(string note)
     {
+        if (!isOpen) return;
         if (isChecking) return;
 
-        PlaySound(note);
-
+        // failsafe
         if (inputIndex >= playerInput.Length)
+        {
+            ResetSequence();
             return;
+        }
+
+        PlaySound(note);
 
         playerInput[inputIndex] = note;
         pressedKeys[inputIndex] = GetKeyImage(note);
@@ -116,8 +136,11 @@ public class PianoPuzzle : MonoBehaviour
         isChecking = false;
     }
 
-    void ExitPiano()
+    public void ExitPiano()
     {
+        isOpen = false;
+        ResetSequence();
+
         if (pianoPanel != null)
             pianoPanel.SetActive(false);
 
@@ -139,32 +162,16 @@ public class PianoPuzzle : MonoBehaviour
         }
     }
 
-    void SetKeyColor(Color color)
-    {
-        if (keyC != null) keyC.color = color;
-        if (keyDSharp != null) keyDSharp.color = color;
-        if (keyG != null) keyG.color = color;
-    }
-
     public void ResetSequence()
     {
         inputIndex = 0;
+        isChecking = false;
 
         for (int i = 0; i < playerInput.Length; i++)
         {
             playerInput[i] = "";
             pressedKeys[i] = null;
         }
-
-        // Keep correct base colors
-        //if (keyC != null) keyC.color = Color.white;
-        //if (keyDSharp != null) keyDSharp.color = Color.black;
-        //if (keyG != null) keyG.color = Color.white;
-    }
-
-    void OnEnable()
-    {
-        ResetSequence();
     }
 
     IEnumerator SetColorNextFrame(Image img, Color color)

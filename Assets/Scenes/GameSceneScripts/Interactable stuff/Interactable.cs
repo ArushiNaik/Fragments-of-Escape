@@ -1,37 +1,60 @@
+//using UnityEngine;
+//using UnityEngine.InputSystem;
+
+//public class Interactable : MonoBehaviour
+//{
+//    protected bool playerNearby;
+//    private GameInputActions inputActions;
+
+//    protected virtual void Awake()
+//    {
+//        inputActions = new GameInputActions();
+//        inputActions.player.Enable();
+//        inputActions.player.Interact.performed += ctx => OnInteractPressed();
+//    }
+
+//    protected virtual void OnDestroy()
+//    {
+//        inputActions.player.Disable();
+//    }
+
+//    private void OnInteractPressed()
+//    {
+//        if (!playerNearby) return;
+//        Debug.Log("INTERACT TRIGGERED: " + gameObject.name);
+//        Interact();
+//    }
+
+//    protected virtual void Interact()
+//    {
+//        GameMessageManager.instance?.ShowMessage("Interacted with " + gameObject.name);
+//    }
+
+//    protected virtual void OnTriggerEnter2D(Collider2D other)
+//    {
+//        if (!other.CompareTag("Player")) return;
+//        playerNearby = true;
+//        InteractionPromptUI.instance?.ShowPrompt();
+//    }
+
+//    protected virtual void OnTriggerExit2D(Collider2D other)
+//    {
+//        if (!other.CompareTag("Player")) return;
+//        playerNearby = false;
+//        InteractionPromptUI.instance?.HidePrompt();
+//    }
+//}
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    protected bool playerNearby = false;
-
-    void Update()
+    public virtual void Interact()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
-        {
-            Interact();
-        }
+        Debug.Log("Interacted with " + gameObject.name);
     }
 
-    protected virtual void Interact()
+    public virtual string GetPromptText()
     {
-        GameMessageManager.instance.ShowMessage("Interacted with " + gameObject.name);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = true;
-            InteractionPromptUI.instance.ShowPrompt();
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerNearby = false;
-            InteractionPromptUI.instance.HidePrompt();
-        }
+        return "Press E to interact";
     }
 }

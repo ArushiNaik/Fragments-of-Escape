@@ -10,8 +10,7 @@ public class RewardKeyPickup : MonoBehaviour
         {
             InventoryManager inv = FindAnyObjectByType<InventoryManager>();
             inv.AddItem(itemIcon);
-
-            // 🔑 FIX: reset interaction UI
+            
             if (InteractionPromptUI.instance != null)
                 InteractionPromptUI.instance.HidePrompt();
 

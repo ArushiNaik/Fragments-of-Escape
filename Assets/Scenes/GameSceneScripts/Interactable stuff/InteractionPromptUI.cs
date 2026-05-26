@@ -19,6 +19,8 @@ public class InteractionPromptUI : MonoBehaviour
 
     public void HidePrompt()
     {
+        if (promptUI == null) return; // 🔥 CRITICAL FIX
+
         promptUI.SetActive(false);
     }
 

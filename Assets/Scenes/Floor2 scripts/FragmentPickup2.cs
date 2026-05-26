@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class FragmentPickup2 : Interactable
+public class Fragment2Pickup : MonoBehaviour
 {
+    public KeyManager keyManager;
+
     [Header("Movement")]
     public float riseHeight = 1.5f;
     public float riseSpeed = 2f;
@@ -29,10 +31,15 @@ public class FragmentPickup2 : Interactable
 
         StartCoroutine(Animate());
     }
-
+    void Awake()
+    {
+        if (keyManager == null)
+        {
+            keyManager = FindFirstObjectByType<KeyManager>();
+        }
+    }
     IEnumerator Animate()
     {
-        // Rise
         while (Vector3.Distance(transform.position, topPos) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, topPos, Time.deltaTime * riseSpeed);
@@ -41,7 +48,6 @@ public class FragmentPickup2 : Interactable
 
         transform.position = topPos;
 
-        // Fall
         while (Vector3.Distance(transform.position, finalPos) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, finalPos, Time.deltaTime * fallSpeed);
@@ -51,13 +57,10 @@ public class FragmentPickup2 : Interactable
         transform.position = finalPos;
         floating = true;
     }
-
     void Update()
     {
-        // Rotate
         transform.Rotate(0, 50f * Time.deltaTime, 0);
 
-        // Float
         if (floating)
         {
             float yOffset = Mathf.Sin(Time.time * floatSpeed) * floatAmplitude;
@@ -70,13 +73,25 @@ public class FragmentPickup2 : Interactable
         }
     }
 
-    protected override void Interact()
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player")) return;
+
         Debug.Log("Fragment Collected!");
 
         if (InventoryManager.instance != null)
         {
             InventoryManager.instance.AddItem(itemSprite);
+        }
+
+        if (keyManager != null)
+        {
+            keyManager.hasFragment2 = true;
+            Debug.Log("KeyManager updated: Fragment2 TRUE");
+        }
+        else
+        {
+            Debug.LogError("KeyManager NOT ASSIGNED on Fragment2Pickup");
         }
 
         Destroy(gameObject);

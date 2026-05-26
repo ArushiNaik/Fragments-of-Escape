@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - ItemDrop
+  - Monster
+  - Gun
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Furniture
   - UI
   - Interactable
-  - 
+  - Monster
   - 
   - 
   - 
@@ -45,6 +48,9 @@ TagManager:
   - name: Background
     uniqueID: 1275453633
     locked: 0
+  - name: Back of cage
+    uniqueID: 2904411433
+    locked: 0
   - name: Player
     uniqueID: 1140672343
     locked: 0
@@ -56,6 +62,9 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 1965389639
+    locked: 0
+  - name: Monster
+    uniqueID: 891469547
     locked: 0
   m_RenderingLayers:
   - Default

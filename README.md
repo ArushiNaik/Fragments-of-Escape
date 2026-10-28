@@ -2,28 +2,34 @@
 
 A suspense-driven survival horror game built in Unity, where the player is trapped in a haunted environment and must find a way to escape while surviving escalating danger.
 
-This project includes a mix of exploration, puzzle interaction, combat-avoidance mechanics, audio-driven atmosphere, and a full escape-game loop with win/lose states.
+<p align="center">
+  <img src="https://img.shields.io/badge/Engine-Unity-000000?style=for-the-badge&logo=unity" alt="Unity" />
+  <img src="https://img.shields.io/badge/Language-C%23-239120?style=for-the-badge&logo=csharp" alt="C#" />
+  <img src="https://img.shields.io/badge/Genre-Horror-8B0000?style=for-the-badge" alt="Horror" />
+</p>
 
 ## Overview
 
-Fragments of Escape is a Unity horror project focused on:
+Fragments of Escape is a Unity horror project centered around exploration, tension, and survival. Players navigate a haunted environment, interact with objects, uncover clues, and attempt to escape before danger overwhelms them.
+
+This project combines:
 
 - atmospheric exploration
-- interactive objects and puzzle progression
-- survival / stealth-style tension
+- puzzle and progression systems
+- survival/stealth-style tension
 - environmental storytelling
-- player death and game-over flow
-- win-state progression after completing the escape objective
+- win/lose gameplay flow
+- immersive sound-driven horror atmosphere
 
 ## Features
 
 - First-person or third-person style exploration gameplay
-- Horror ambience and layered sound design
+- Atmosphere-rich horror ambience and layered audio design
 - Input-driven interactions and menu flow
 - Inventory, puzzle, and progression systems
-- Pause menu and game-over/win screens
+- Pause menu and game-over/win states
 - Unity URP setup with Input System integration
-- Scriptable, modular project structure for future expansion
+- Modular structure for future expansion and iteration
 
 ## Repository Structure
 
@@ -50,7 +56,7 @@ Fragments of Escape is a Unity horror project focused on:
 ├── Fragments-of-Escape.slnx
 ├── Fragments of Escape.slnx
 ├── Assembly-CSharp.csproj
-└── README.md
+├── README.md
 ```
 
 ## Getting Started
@@ -81,55 +87,57 @@ The project uses Unity's Input System configuration. You can review and customiz
 - `Assets/GameInputActions.inputactions`
 - `Assets/InputSystem_Actions.inputactions`
 
-If you want to update the movement, interaction, pause, or gameplay mappings, use the Unity Input System editor.
+If you want to update movement, interaction, pause, or gameplay mappings, use the Unity Input System editor.
 
-## Gameplay Notes
+## Gameplay Loop
 
-This repository appears to contain a horror escape game with a progression loop built around:
+The core gameplay loop is built around:
 
-- exploring the environment
-- discovering key items or clues
-- interacting with objects or puzzle systems
-- avoiding danger or surviving threatening encounters
-- escaping before the game ends
+1. exploring the environment
+2. discovering key items or clues
+3. interacting with objects and puzzle systems
+4. surviving danger or threatening encounters
+5. escaping before the game ends
 
 ## Development Notes
 
-This project is a Unity-based game prototype/production project and is structured for iterative game development. You can extend it by:
+This project is structured for iterative development and future expansion. You can build on it by:
 
-- adding custom scenes and levels
-- wiring new puzzle logic in the `Assets/ScriptsGame` folder
-- modifying UI flows for game over, pause, or win states
-- replacing or expanding sound and visual assets
+- adding new levels and scenes
+- expanding the puzzle logic in `Assets/ScriptsGame`
+- improving the UI flow for pause, victory, and game-over states
+- replacing or enhancing visual and audio assets
 
-## Assets and Tools Used
+## Tools and Assets
 
 The project includes support for:
 
 - Unity URP
 - Unity Input System
 - TextMeshPro
-- 2D/2.5D game asset workflows
 - custom C# gameplay scripts
-
-## License
-
-This repository does not currently include an explicit license file. If you plan to distribute or publish the project, consider adding an appropriate open-source or commercial licensing file.
+- stylized horror art and audio assets
 
 ## Contributing
 
-Contributions are welcome if you want to improve gameplay, polish, bug fixes, or add new systems. To contribute:
+Contributions are welcome if you want to improve gameplay, polish, bug fixes, or add new systems.
+
+To contribute:
 
 1. Fork the repository
 2. Create a feature branch
 3. Commit your changes
 4. Open a pull request
 
+## License
+
+This repository does not currently include an explicit license file. If you plan to distribute or publish the project, consider adding a suitable open-source or commercial license.
+
 ## Author
 
-Project repository: ArushiNaik/Fragments-of-Escape
+Project repository: `ArushiNaik/Fragments-of-Escape`
 
-## Screenshots / Media
+## Screenshots and Media
 
 The repository contains several game assets, audio files, and UI elements, including:
 
